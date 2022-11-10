@@ -159,6 +159,14 @@ body {
 }
 
 @media screen and (max-width: 600px) {
+  .hitscore-ctn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+  }
   .board {
     min-width: 95%;
     grid-template-columns: repeat(4, minmax(50px, 1fr));
