@@ -1,7 +1,7 @@
 const storage = localStorage;
 const hitScore = document.querySelector('.hitscore');
 
-const handleHighScore = (timer) => {
+export const handleHighScore = (timer) => {
   const currentTimer = timer.toFixed(2);
   if (storage.getItem('score') === null) {
     storage.setItem('score', 0);
@@ -13,4 +13,7 @@ const handleHighScore = (timer) => {
   hitScore.textContent = storage.getItem('score');
 };
 
-export default handleHighScore;
+export const clearBestScore = () => {
+  storage.setItem('score', 0);
+  hitScore.textContent = storage.getItem('score');
+};

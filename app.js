@@ -1,5 +1,5 @@
 import jsonPaths from './pathlist.json' assert { type: 'json' };
-import handleHighScore from './highscore.js';
+import { handleHighScore, clearBestScore } from './highscore.js';
 import createCard from './card.js';
 import reloadPage from './reloadPage.js';
 
@@ -9,6 +9,7 @@ const spanTimer = document.querySelector('.timer');
 const ctnTimer = document.querySelector('.timer-ctn');
 const ctnRestart = document.querySelector('.restart-ctn');
 const btnRestart = document.querySelector('#restart');
+const clearScore = document.querySelector('.clear-score');
 
 const shufflePaths = [];
 const selectedPaths = [];
@@ -121,3 +122,4 @@ const gameInit = () => {
 gameInit();
 
 btnRestart.addEventListener('click', reloadPage);
+clearScore.addEventListener('click', clearBestScore);
