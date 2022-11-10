@@ -32,6 +32,23 @@ body {
   font-weight: 600;
 }
 
+.clear-score {
+  cursor: pointer;
+  padding: 5px 10px;
+  font-size: 1rem;
+  border: 1px solid #f684ff;
+  border-radius: 6px;
+  color: #bbbbbb;
+  background: none;
+  margin-top: 10px;
+}
+
+.clear-score:hover {
+  background-color: #d300ff54;
+  color: #fff;
+  box-shadow: 1px 4px 20px 0px rgba(245, 88, 217, 0.3);
+}
+
 .board {
   min-width: 70%;
   display: grid;
