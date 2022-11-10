@@ -49,8 +49,10 @@ const handleFlipCards = () => {
         }
         if (selectedImg < 2) {
           const cardInner = e.target.parentNode;
+          if (!cardInner.classList.contains('flip-card')) {
+            selectedPaths.push(cardInner.querySelector('.card-image').style.backgroundImage);
+          }
           cardInner.classList.add('flip-card');
-          selectedPaths.push(cardInner.querySelector('.card-image').style.backgroundImage);
           selectedImg += 1;
         }
         if (selectedImg === 2) {
