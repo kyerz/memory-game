@@ -1,4 +1,6 @@
 import jsonPaths from './pathlist.json' assert { type: 'json' };
+import handleHighScore from './highscore.js';
+import createCard from './card.js';
 
 const pathList = jsonPaths.pathlist;
 const board = document.querySelector('.board');
@@ -6,53 +8,14 @@ const spanTimer = document.querySelector('.timer');
 const ctnTimer = document.querySelector('.timer-ctn');
 const ctnRestart = document.querySelector('.restart-ctn');
 const btnRestart = document.querySelector('#restart');
-const hitScore = document.querySelector('.hitscore');
 
-const storage = localStorage;
 const shufflePaths = [];
 const selectedPaths = [];
 const BOARD_SIZE = pathList.length * 2;
-const NB_COLS = 6;
-const NB_ROWS = BOARD_SIZE / NB_COLS;
 let selectedImg = 0;
 let isReadyToFlip = true;
 let timer = 0;
-let isRunning = false;
 let isGameStart = false;
-
-const handleHighScore = () => {
-  const currentTimer = timer.toFixed(2);
-  if (storage.getItem('score') === null) {
-    storage.setItem('score', 0);
-  } else if (+storage.getItem('score') === 0) {
-    storage.setItem('score', currentTimer);
-  } else if (+storage.getItem('score') > timer && timer !== 0) {
-    storage.setItem('score', currentTimer);
-  }
-  hitScore.textContent = storage.getItem('score');
-};
-
-const createCard = () => {
-  const card = `
-  <div class="card">
-  <div class="card-inner">
-    <div class="card-front">
-      <div class="card-content">
-        <p>PlaceHolder</p>
-      </div>
-    </div>
-    <div class="card-back">
-      <div class="card-top">
-        <div class="card-image">
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-  `;
-
-  return card;
-};
 
 const randomizeCards = () => {
   pathList.forEach((path) => {
@@ -133,7 +96,7 @@ const handleGameWin = () => {
     ctnTimer.innerHTML = '';
     ctnTimer.append(message);
     ctnRestart.classList.remove('hide');
-    handleHighScore();
+    handleHighScore(timer);
   }
 };
 
@@ -148,7 +111,7 @@ const handleTimer = () => {
 };
 
 const gameInit = () => {
-  handleHighScore();
+  handleHighScore(timer);
   randomizeCards();
   setupBoard();
   handleFlipCards();
