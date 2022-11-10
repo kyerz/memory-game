@@ -44,7 +44,8 @@ body {
   margin-top: 10px;
 }
 
-.clear-score:hover {
+.clear-score:hover,
+.restart-ctn button:hover {
   background-color: #d300ff54;
   color: #fff;
   box-shadow: 1px 4px 20px 0px rgba(245, 88, 217, 0.3);
