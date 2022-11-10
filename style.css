@@ -27,7 +27,6 @@ body {
 
 .timer-ctn {
   margin-bottom: 20px;
-  font-size: 2rem;
   color: #fff;
   font-weight: 600;
 }
@@ -140,6 +139,20 @@ body {
   display: none;
 }
 
+.show {
+  animation: showMessage 1s ease;
+}
+
+@keyframes showMessage {
+  0% {
+    opacity: 0;
+    font-size: 0;
+  }
+  100% {
+    opacity: 1rem;
+  }
+}
+
 /*MEDIA QUERIES*/
 @media screen and (max-width: 870px) {
   .board {
@@ -169,7 +182,6 @@ body {
   .timer-ctn {
     margin-top: 40px;
     text-align: center;
-    font-size: 1.5rem;
   }
   .board {
     min-width: 95%;

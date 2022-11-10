@@ -97,6 +97,7 @@ const handleGameWin = () => {
     isGameStart = false;
     const message = document.createElement('h3');
     message.textContent = `Bravo, tu as réussi en ${timer.toFixed(2)} secondes 😸`;
+    message.classList.add('show');
     ctnTimer.innerHTML = '';
     ctnTimer.append(message);
     ctnRestart.classList.remove('hide');
