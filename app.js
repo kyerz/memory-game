@@ -1,6 +1,7 @@
 import jsonPaths from './pathlist.json' assert { type: 'json' };
 import handleHighScore from './highscore.js';
 import createCard from './card.js';
+import reloadPage from './reloadPage.js';
 
 const pathList = jsonPaths.pathlist;
 const board = document.querySelector('.board');
@@ -117,8 +118,6 @@ const gameInit = () => {
   handleFlipCards();
 };
 
-btnRestart.addEventListener('click', (e) => {
-  window.location.reload();
-});
-
 gameInit();
+
+btnRestart.addEventListener('click', reloadPage);
