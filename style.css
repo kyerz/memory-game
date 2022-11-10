@@ -32,7 +32,8 @@ body {
   font-weight: 600;
 }
 
-.clear-score {
+.clear-score,
+.restart-ctn button {
   cursor: pointer;
   padding: 5px 10px;
   font-size: 1rem;
@@ -131,13 +132,7 @@ body {
 }
 
 .restart-ctn button {
-  cursor: pointer;
-  padding: 5px 10px;
   font-size: 2rem;
-  border: 1px solid #f684ff;
-  border-radius: 6px;
-  background: #fae6ff;
-  color: #c100d9;
 }
 
 .hide {
