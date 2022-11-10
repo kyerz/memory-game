@@ -172,6 +172,8 @@ body {
   }
   .timer-ctn {
     margin-top: 40px;
+    text-align: center;
+    font-size: 1.5rem;
   }
   .board {
     min-width: 95%;
