@@ -1,0 +1,150 @@
+@charset "UTF-8";
+*,
+::before,
+::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #323d60;
+}
+
+.hitscore-ctn {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.timer-ctn {
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: #fff;
+  font-weight: 600;
+}
+
+.board {
+  min-width: 70%;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(6, minmax(50px, 1fr));
+  grid-template-rows: repeat(4, 150px);
+}
+
+.card {
+  border: 1px solid rgba(241, 106, 230, 0.4705882353);
+  box-shadow: 1px 4px 20px 0px rgba(245, 88, 217, 0.3);
+}
+
+.card:hover {
+  cursor: pointer;
+}
+
+.card img {
+  width: 100%;
+  perspective: 1000px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+/*classe ajoutée en JS sur .card-inner*/
+.flip-card {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+}
+
+.card-front {
+  overflow: hidden;
+}
+
+.card-front:before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  background-color: #42507e;
+}
+
+.card-front .card-content {
+  z-index: 1;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+.card-top {
+  width: 100%;
+  height: 100%;
+}
+
+.card-image {
+  background-color: #323d60;
+  background-position: center center;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.restart-ctn {
+  margin-top: 20px;
+}
+
+.restart-ctn button {
+  cursor: pointer;
+  padding: 5px 10px;
+  font-size: 2rem;
+  border: 1px solid #f684ff;
+  border-radius: 6px;
+  background: #fae6ff;
+  color: #c100d9;
+}
+
+.hide {
+  display: none;
+}
+
+/*MEDIA QUERIES*/
+@media screen and (max-width: 870px) {
+  .board {
+    min-width: 80%;
+    grid-template-rows: repeat(4, 120px);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .board {
+    grid-template-rows: repeat(4, 80px);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .board {
+    min-width: 95%;
+    grid-template-columns: repeat(4, minmax(50px, 1fr));
+    grid-template-rows: repeat(6, 80px);
+  }
+}
